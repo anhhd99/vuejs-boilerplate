@@ -1,22 +1,16 @@
-import { AxiosResponse } from 'axios';
-
 import { httpClient } from '@/core';
+import { IResponse } from '@/core/interfaces';
 
 class AuthService {
-  async login(username: string, password: string) {
-    const res: AxiosResponse = await httpClient.post('/auth/login', {
+  async login(username: string, password: string): Promise<IResponse> {
+    return httpClient.post('/auth/login', {
       username,
       password,
-    });
-
-    return res.data;
+    }) as Promise<IResponse>;
   }
 
-  async refreshToken() {
-    const res: AxiosResponse = await httpClient.post('auth/refresh-token', null, {
-      withCredentials: true,
-    });
-
+  async refreshToken(): Promise<IResponse> {
+    const res = await httpClient.post('auth/refresh-token');
     return res.data;
   }
 }

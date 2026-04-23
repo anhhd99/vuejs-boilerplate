@@ -9,7 +9,7 @@ import auth from '@/modules/auth/routes';
 const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
-    name: RouteName.NotFound,
+    name: RouteName.NOT_FOUND,
     component: NotFound,
   },
   {

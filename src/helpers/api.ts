@@ -10,14 +10,18 @@ export const isNotifyWhenFail = (response: any) => {
   return !!response?.data?.message;
 };
 
-export const fetchBeforeInitApp = async () => {
-  // const isEmptyToken = isNoTokenPresent();
-  // const appStore = useAppStore();
-  // const authStore = useAuthStore();
-  // if (isEmptyToken) {
-  //   return;
-  // }
-  // await authStore.fetchCurrentUser();
-  // appStore.isFetchedAll = true;
-  // authStore.isLogined = true;
+/**
+ * Called once before the app fully initializes (e.g. in main.ts).
+ * Use this to prefetch global data such as the current user profile.
+ *
+ * TODO: Uncomment and implement when auth store is ready.
+ * Example:
+ *   const appStore = useAppStore();
+ *   if (!isNoTokenPresent()) {
+ *     await authStore.fetchCurrentUser();
+ *     appStore.isFetchedAll = true;
+ *   }
+ */
+export const fetchBeforeInitApp = async (): Promise<void> => {
+  // Implementation pending — see TODO above.
 };
