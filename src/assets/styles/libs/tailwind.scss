@@ -1,0 +1,13 @@
+@layer theme;
+@import 'tailwindcss/theme.css' layer(theme);
+
+@theme {
+  --color-ghtk: #158c4d;
+  --shadow-text: 0px 1px 2px 0px #0000000d;
+  --color-ghtk-bg: #f6f6f6;
+  --text-15: 15px;
+  --text-13: 13px;
+  --text-15--line-height: 20px;
+}
+
+@import 'tailwindcss/utilities.css'; // don't use layer(utilities) because it make can't overwrite ant

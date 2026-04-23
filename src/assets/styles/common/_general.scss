@@ -1,0 +1,20 @@
+#__app {
+  height: 100%;
+}
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 15px;
+  line-height: 20px;
+}
+
+// Override base SVG style to work with Ant Design
+svg {
+  vertical-align: initial;
+}

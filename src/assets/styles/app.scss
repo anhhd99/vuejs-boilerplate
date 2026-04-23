@@ -1,0 +1,9 @@
+@use './common/variable';
+@use './libs/antd';
+@use './libs/tailwind';
+@use './common/general';
+@use './common/fonts';
+
+svg {
+  vertical-align: initial;
+}
