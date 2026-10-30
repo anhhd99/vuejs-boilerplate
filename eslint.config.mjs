@@ -1,7 +1,7 @@
 import { defineConfig } from 'eslint/config';
 import eslintJs from '@eslint/js';
-import prettier from 'eslint-plugin-prettier';
-import vueEslintConfigPrettier from '@vue/eslint-config-prettier';
+import skipFormatting from 'eslint-config-prettier/flat';
+import pluginOxfmt from 'eslint-plugin-oxfmt';
 import pluginVue from 'eslint-plugin-vue';
 import typescriptEslintParser from '@typescript-eslint/parser';
 import tseslint from 'typescript-eslint';
@@ -34,16 +34,9 @@ export default defineConfig([
       eslintJs.configs.recommended,
       ...tseslint.configs.recommended,
       ...pluginVue.configs['flat/recommended'],
-      vueEslintConfigPrettier,
     ],
-    plugins: {
-      prettier,
-    },
 
     rules: {
-      // prettier
-      'prettier/prettier': ['warn', { endOfLine: 'auto' }],
-
       //js
       'no-constant-binary-expression': 'off',
       //
@@ -123,6 +116,17 @@ export default defineConfig([
       'vue/multi-word-component-names': 'off',
       'vue/no-reserved-component-names': 'off',
       'vue/no-deprecated-model-definition': 'off',
+    },
+  },
+  {
+    files: ['src/**/*.{js,cjs,ts,vue}'],
+    // Keep formatting rules last so ESLint fixes agree with Oxfmt.
+    extends: [skipFormatting],
+    plugins: {
+      oxfmt: pluginOxfmt,
+    },
+    rules: {
+      'oxfmt/oxfmt': ['warn', { ignorePath: '.gitignore' }],
     },
   },
 ]);

@@ -1,0 +1,10 @@
+{
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "eslint.run": "onType",
+  "oxc.enable.oxlint": false,
+  "[javascript][typescript][vue][css][scss]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true
+}

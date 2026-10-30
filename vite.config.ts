@@ -20,10 +20,10 @@ export default ({ mode }) => {
     ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
+        '@': resolve(import.meta.dirname, './src'),
       },
     },
-    envDir: resolve(__dirname, ENV_PATH),
+    envDir: resolve(import.meta.dirname, ENV_PATH),
     server: {
       port: parseInt(env.VITE_APP_PORT) || 3000,
     },

@@ -15,14 +15,14 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to) => {
   const guard = await authGuard({ to });
 
   if (guard.canAccess) {
-    return next();
+    return;
   }
 
-  return next(guard.redirectTo);
+  return guard.redirectTo;
 });
 
 export default router;
