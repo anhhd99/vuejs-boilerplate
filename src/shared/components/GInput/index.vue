@@ -1,5 +1,5 @@
 <template>
-  <Input class="px-4 py-[9px] leading-5 placeholder:text-[#888]">
+  <Input v-bind="props">
     <template v-for="(_, name) in $slots" #[name]="slotProps">
       <slot :name="name" v-bind="slotProps || {}" />
     </template>
@@ -7,11 +7,25 @@
 </template>
 
 <script setup lang="ts">
-import { Input } from 'ant-design-vue';
+import { Input, type InputProps } from 'ant-design-vue';
+
+const props = withDefaults(defineProps<InputProps>(), {
+  type: 'text',
+  lazy: true,
+  // Preserve unset booleans so Input and ConfigProvider defaults still apply.
+  allowClear: undefined,
+  autofocus: undefined,
+  bordered: undefined,
+  disabled: undefined,
+  focused: undefined,
+  hidden: undefined,
+  loading: undefined,
+  readonly: undefined,
+});
 </script>
 
 <style scoped lang="scss">
-:deep(.ant-input::placeholder) {
-  color: #888;
-}
+// :deep(.ant-input::placeholder) {
+//   color: #888;
+// }
 </style>
